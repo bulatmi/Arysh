@@ -2,6 +2,7 @@ package ru.itpark.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import ru.itpark.dto.PhoneRecordDto;
+import ru.itpark.dto.ProductDto;
 import ru.itpark.dto.UserDto;
 import ru.itpark.dto.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,14 @@ public class UserController {
         // получаем результат регистрации и возвращаем
         // клиентскому приложению ответ
         UserDto resultUser = service.registration(user);
+        return ResponseEntity
+                .ok(resultUser);
+    }
+
+    @PostMapping("/products")
+    public ResponseEntity<UserDto>
+    product(@RequestBody ProductDto product) {
+        ProductDto resultProduct = service.newproduct(product);
         return ResponseEntity
                 .ok(resultUser);
     }

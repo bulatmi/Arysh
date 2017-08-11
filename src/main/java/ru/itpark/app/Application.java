@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import ru.itpark.models.PhoneBookRecord;
-import ru.itpark.models.Token;
-import ru.itpark.models.User;
+import ru.itpark.models.*;
 
 // говорим, что у нас SpringBoot-приложение
 // таким образом, автоматически будет запущен tomcat, hibernate
@@ -18,8 +16,8 @@ import ru.itpark.models.User;
 // подключаем JPA-репозитории
 @EnableJpaRepositories(basePackages = "ru.itpark.repository")
 // здесь вы говорите, какими сущностями будет оперировать
-@EntityScan(basePackageClasses = {User.class, Token.class, PhoneBookRecord.class,
-        Application.class, Jsr310JpaConverters.class})
+@EntityScan(basePackageClasses = {User.class, Token.class, PhoneBookRecord.class, Product.class,
+        Order.class, Cart.class, Application.class, Jsr310JpaConverters.class})
 // чтобы Spring где искать компоненты
 @ComponentScan(value = "ru.itpark")
 public class Application {
