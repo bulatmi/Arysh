@@ -1,13 +1,12 @@
 package ru.itpark.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itpark.dto.PhoneRecordDto;
 import ru.itpark.dto.ProductDto;
 import ru.itpark.dto.UserDto;
 import ru.itpark.dto.UserRegistrationDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import ru.itpark.models.PhoneBookRecord;
 import ru.itpark.services.UsersService;
 
 import java.util.List;
@@ -51,11 +50,11 @@ public class UserController {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<UserDto>
+    public ResponseEntity<ProductDto>
     product(@RequestBody ProductDto product) {
         ProductDto resultProduct = service.newproduct(product);
         return ResponseEntity
-                .ok(resultUser);
+                .ok(resultProduct);
     }
 
     @PostMapping("/login")

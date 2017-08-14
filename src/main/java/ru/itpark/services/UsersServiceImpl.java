@@ -1,15 +1,18 @@
 package ru.itpark.services;
 
 import ru.itpark.dto.PhoneRecordDto;
+import ru.itpark.dto.ProductDto;
 import ru.itpark.dto.UserDto;
 import ru.itpark.dto.UserRegistrationDto;
 import ru.itpark.models.PhoneBookRecord;
+import ru.itpark.models.Product;
 import ru.itpark.models.Token;
 import ru.itpark.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.itpark.repository.PhoneBookRecordsRepository;
+import ru.itpark.repository.ProductsRepository;
 import ru.itpark.repository.TokensRepository;
 import ru.itpark.repository.UsersRepository;
 
@@ -29,6 +32,9 @@ public class UsersServiceImpl implements UsersService {
     private UsersRepository usersRepository;
 
     @Autowired
+    private ProductsRepository productsRepository;
+
+    @Autowired
     private TokensRepository tokensRepository;
 
     @Autowired
@@ -46,6 +52,13 @@ public class UsersServiceImpl implements UsersService {
         usersRepository.save(model);
         // 3. Получить id и имя и вернуть как результат
         return new UserDto(model.getId(), model.getName());
+    }
+
+    @Override
+    public ProductDto newproduct(ProductDto product) {
+        Product model = new Product(product.getProductName(), product.getPrice());
+        productsRepository.save(model);
+        return new ProductDto(model.getId(), model.getProductName());
     }
 
     @Override

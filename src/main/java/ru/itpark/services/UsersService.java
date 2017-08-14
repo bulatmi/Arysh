@@ -1,6 +1,7 @@
 package ru.itpark.services;
 
 import ru.itpark.dto.PhoneRecordDto;
+import ru.itpark.dto.ProductDto;
 import ru.itpark.dto.UserDto;
 import ru.itpark.dto.UserRegistrationDto;
 
@@ -14,4 +15,6 @@ public interface UsersService {
     List<PhoneRecordDto> getRecords(String token);
 
     PhoneRecordDto addRecord(String token, PhoneRecordDto record);
+
+    ProductDto newproduct(ProductDto product);
 }

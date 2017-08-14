@@ -21,7 +21,7 @@ public class Product {
     private Set<Cart> carts;
 
 
-    public Product() {
+    public Product(String productName, Float price) {
     }
 
     public Product(String product_name, Float price, LocalDateTime creationTime) {

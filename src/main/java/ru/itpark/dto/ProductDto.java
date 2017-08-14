@@ -5,7 +5,7 @@ public class ProductDto {
     private String product_name;
     private Float price;
 
-    public ProductDto() {
+    public ProductDto(int id, String productName) {
     }
 
     public ProductDto(int id, String product_name, Float price) {
